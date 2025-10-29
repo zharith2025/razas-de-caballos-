@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razas de Caballos de Colombia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-bottom: 3rem;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .races-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .race-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .race-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .race-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #27ae60);
+        }
+
+        .race-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .race-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .race-origin {
+            color: #7f8c8d;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .race-content {
+            padding: 1.5rem;
+        }
+
+        .race-description {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        .characteristics {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .characteristics h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .char-list {
+            list-style: none;
+        }
+
+        .char-list li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .char-list li::before {
+            content: '🐎';
+            position: absolute;
+            left: 0;
+        }
+
+        .uses {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .uses h4 {
+            color: #27ae60;
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .colombia-flag {
+            display: inline-block;
+            width: 40px;
+            height: 25px;
+            margin: 0 10px;
+            border-radius: 3px;
+            background: linear-gradient(to bottom, #ffde00 50%, #003893 50%, #003893 75%, #ce1126 75%);
+            vertical-align: middle;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .races-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .race-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Razas de Caballos de Colombia</h1>
+                <p class="subtitle">Patrimonio Equino Nacional <span class="colombia-flag"></span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section fade-in">
+            <div class="hero-text">
+                Colombia posee un rico patrimonio equino con razas únicas que han sido moldeadas por la geografía diversa del país, 
+                desde los llanos orientales hasta las montañas andinas. Estas razas han sido compañeras fundamentales en la vida 
+                rural colombiana y representan siglos de selección y adaptación al territorio nacional.
+            </div>
+        </section>
+
+        <div class="races-grid">
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Caballo Criollo Colombiano</h2>
+                    <p class="race-origin">Región: Todo el territorio nacional</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        El Caballo Criollo Colombiano es la raza equina más representativa del país. Descendiente de los caballos 
+                        traídos por los conquistadores españoles, se ha adaptado perfectamente a las condiciones del territorio 
+                        colombiano durante más de 500 años. Su rusticidad y versatilidad lo convierten en el compañero ideal 
+                        del campesino colombiano.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.40 - 1.50 metros</li>
+                            <li>Peso: 380 - 450 kg</li>
+                            <li>Colores: Variados, predominan alazanes y castaños</li>
+                            <li>Constitución: Compacta y armónica</li>
+                            <li>Extremidades: Fuertes y bien aplomadas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Trabajo ganadero, silla de paso, deporte ecuestre, chalanería y turismo rural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Paso Fino Colombiano</h2>
+                    <p class="race-origin">Región: Zona Cafetera y Valle del Cauca</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        El Paso Fino Colombiano es reconocido mundialmente por su elegancia y su aire natural de paso. 
+                        Esta raza ha sido perfeccionada especialmente en la región cafetera, donde se ha convertido en 
+                        símbolo de tradición y cultura. Su andar suave y rítmico lo hace único en el mundo equino.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.42 - 1.52 metros</li>
+                            <li>Peso: 400 - 500 kg</li>
+                            <li>Perfil: Recto o ligeramente convexo</li>
+                            <li>Cuello: Arqueado y bien insertado</li>
+                            <li>Aires: Paso fino, paso corto y paso largo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Exhibiciones, concursos de paso, cabalgatas, turismo ecuestre y representación cultural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Trocha Pura Colombiana</h2>
+                    <p class="race-origin">Región: Antioquia y Viejo Caldas</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        La Trocha Pura Colombiana es una raza que se distingue por su aire diagonal alterno, conocido como trocha. 
+                        Originaria principalmente de Antioquia, esta raza combina elegancia con funcionalidad, siendo muy apreciada 
+                        tanto en competencias como en el trabajo de campo por su resistencia y temperamento dócil.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.40 - 1.50 metros</li>
+                            <li>Peso: 380 - 450 kg</li>
+                            <li>Aire característico: Trocha pura</li>
+                            <li>Temperamento: Dócil y noble</li>
+                            <li>Resistencia: Muy alta</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Competencias de trocha, trabajo ganadero, cabalgatas de resistencia y silla de placer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Caballo de los Llanos</h2>
+                    <p class="race-origin">Región: Llanos Orientales</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        El Caballo de los Llanos es el compañero inseparable del llanero. Adaptado a las vastas sabanas de la 
+                        Orinoquia colombiana, este caballo se caracteriza por su resistencia excepcional, su habilidad para el 
+                        trabajo ganadero y su capacidad para soportar las condiciones extremas del clima llanero.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.38 - 1.48 metros</li>
+                            <li>Peso: 350 - 420 kg</li>
+                            <li>Constitución: Liviana pero resistente</li>
+                            <li>Adaptación: Excelente al clima tropical</li>
+                            <li>Agilidad: Muy alta para el trabajo de ganado</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Trabajo llanero, arreo de ganado, coleo, joropo y turismo cultural en los llanos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Caballo Costero</h2>
+                    <p class="race-origin">Región: Costa Atlántica</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        El Caballo Costero se ha desarrollado en las llanuras y sabanas de la región Caribe colombiana. 
+                        Influenciado por el clima tropical costero, esta raza se distingue por su adaptación al calor húmedo 
+                        y su utilidad tanto en el trabajo agropecuario como en las festividades tradicionales de la región.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.40 - 1.50 metros</li>
+                            <li>Peso: 370 - 440 kg</li>
+                            <li>Pelaje: Resistente al clima húmedo</li>
+                            <li>Temperamento: Tranquilo y manejable</li>
+                            <li>Resistencia: Adaptado al calor tropical</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Trabajo agrícola, festivales folclóricos, transporte rural y turismo cultural costeño.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="race-card fade-in">
+                <div class="race-header">
+                    <h2 class="race-title">Caballo Santandereano</h2>
+                    <p class="race-origin">Región: Santanderes</p>
+                </div>
+                <div class="race-content">
+                    <p class="race-description">
+                        El Caballo Santandereano se ha forjado en las montañas y valles de los departamentos de Santander y 
+                        Norte de Santander. Su desarrollo ha estado íntimamente ligado a la geografía montañosa de la región, 
+                        lo que le ha conferido características especiales de resistencia y seguridad en terrenos difíciles.
+                    </p>
+                    
+                    <div class="characteristics">
+                        <h4>Características Físicas:</h4>
+                        <ul class="char-list">
+                            <li>Altura: 1.42 - 1.52 metros</li>
+                            <li>Peso: 390 - 470 kg</li>
+                            <li>Constitución: Robusta y compacta</li>
+                            <li>Extremidades: Muy fuertes y seguras</li>
+                            <li>Carácter: Brioso pero controlable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="uses">
+                        <h4>Usos Principales:</h4>
+                        <p>Trabajo en terrenos montañosos, transporte rural, chalanería santandereana y ecoturismo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Patrimonio Equino Colombiano | Una tradición que cabalga con orgullo</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                <span class="colombia-flag"></span>
+                "En cada paso, la historia de Colombia"
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las tarjetas
+        document.querySelectorAll('.race-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Efecto hover mejorado
+        document.querySelectorAll('.race-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
